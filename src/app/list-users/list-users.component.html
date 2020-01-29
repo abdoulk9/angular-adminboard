@@ -1,4 +1,4 @@
-<div class="container p-3 my-3 border">
+<div class="container p-5 my-3 border">
     <h6>La liste des utilisateurs</h6>
     <table class="table table-bordered table-sm table-striped">
         <thead class="thead-dark">
@@ -11,13 +11,13 @@
                 <th>Destroy</th>
             </tr>
         </thead>
-        <tbody *ngFor="let user of users.data">
+        <tbody *ngFor="let user of users.data, let i = index" >
             <tr>
                 <td>{{user.id}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.passeword}}</td>
                 <td>{{user.mail}}</td>
-                <td><a href="#">View profil</a></td>
+                <td><button (click)="onViewUser((i+1))">View profil</button></td>
                 <td><a href="#">Supprimer</a></td>
             </tr>
         </tbody>

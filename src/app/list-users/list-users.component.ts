@@ -10,10 +10,11 @@ import { Subscription } from 'rxjs';
   templateUrl: './list-users.component.html',
   styleUrls: ['./list-users.component.scss']
 })
+
 export class ListUsersComponent implements OnInit, OnDestroy {
 
   users: User[];
-  userSubscribe: Subscription;
+  userSubscription: Subscription;
 
   constructor(private router: Router,
     private httpClient: HttpClient,
@@ -21,7 +22,6 @@ export class ListUsersComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log("entrer dans ngOnint");
-
     this.httpClient.get("http://localhost:3000/user")
       .subscribe(
         (data: User[]) => {
@@ -35,11 +35,14 @@ export class ListUsersComponent implements OnInit, OnDestroy {
           console.log('erreur');
         }
       );
-    
-    
   }
 
+   onViewUser(id: number){
+     this.router.navigate(['/user', 'view', id]);
+   }
+/*
   ngOnDestroy() {
-    this.userSubscribe.unsubscribe();
+    this.userSubscription.unsubscribe();
   }
+*/
 }

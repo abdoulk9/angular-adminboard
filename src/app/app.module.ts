@@ -10,10 +10,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { UsersService } from './list-users/services/user.services';
+import { SingleUserComponent } from './single-user/single-user.component';
 
 const appRoutes: Routes =[
    { path: 'users', component: ListUsersComponent },
    { path: 'user-new', component: CreateUserComponent},
+   { path: 'user/view/:id', component: SingleUserComponent},
    { path: 'edit', component: EditUserComponent},
    { path: '', redirectTo: 'users', pathMatch: 'full'},
    { path: '**', redirectTo:'users'}
@@ -25,7 +27,8 @@ const appRoutes: Routes =[
     CreateUserComponent,
     EditUserComponent,
     HeaderComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    SingleUserComponent
   ],
   imports: [
     BrowserModule,
