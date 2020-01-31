@@ -43,6 +43,7 @@ export class ListUsersComponent implements OnInit {
    }
 
    onDeleteUser(id: number){
+     console.log("dans la function ondele..., l'id est: " + id);
      this.router.navigate(['/user', 'delete', id]);
    }
 

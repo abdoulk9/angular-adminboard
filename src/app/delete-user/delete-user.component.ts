@@ -22,9 +22,11 @@ export class DeleteUserComponent implements OnInit {
     console.log( "suppression élément portant l'id n°: " +  this.userId);
     this.httpClient.delete("http://localhost:3000/user/" + this.userId)
     .subscribe(
-      ( ) =>{
+      () =>{
         console.log("L'élément avec l'id: " + this.userId + " a été supprimer");
-        this.router.navigate(['users']);
+        this.router.navigateByUrl('users');
+        return;
+        
       },
       err =>{console.log("Delete falled");
       this.router.navigate(['users']);

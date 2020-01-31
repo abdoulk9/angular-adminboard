@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CreateUserComponent } from './create-user/create-user.component';
@@ -38,6 +38,7 @@ const appRoutes: Routes =[
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
