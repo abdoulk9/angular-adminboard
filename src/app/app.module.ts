@@ -9,14 +9,16 @@ import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListUsersComponent } from './list-users/list-users.component';
-import { UsersService } from './list-users/services/user.services';
+import { UsersService } from '../services/user.services';
 import { SingleUserComponent } from './single-user/single-user.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
 
 const appRoutes: Routes =[
    { path: 'users', component: ListUsersComponent },
    { path: 'user-new', component: CreateUserComponent},
    { path: 'user/view/:id', component: SingleUserComponent},
-   { path: 'edit', component: EditUserComponent},
+   { path: 'user/edit/:id', component: EditUserComponent},
+   { path: 'user/delete/:id', component: DeleteUserComponent},
    { path: '', redirectTo: 'users', pathMatch: 'full'},
    { path: '**', redirectTo:'users'}
 ]
@@ -28,7 +30,8 @@ const appRoutes: Routes =[
     EditUserComponent,
     HeaderComponent,
     ListUsersComponent,
-    SingleUserComponent
+    SingleUserComponent,
+    DeleteUserComponent
   ],
   imports: [
     BrowserModule,

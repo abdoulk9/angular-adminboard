@@ -15,7 +15,7 @@
                 <td>{{item.name}}</td>
                 <td>{{item.passeword}}</td>
                 <td>{{item.mail}}</td>
-                <td><a href="#">Edit</a></td>
+                <td><button  (click)="onEditUser(item.id)">Edit user</button></td>
             </tr>
         </tbody>
     </table>

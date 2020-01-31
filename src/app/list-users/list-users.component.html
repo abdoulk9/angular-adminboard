@@ -17,8 +17,8 @@
                 <td>{{user.name}}</td>
                 <td>{{user.passeword}}</td>
                 <td>{{user.mail}}</td>
-                <td><button (click)="onViewUser((i+1))">View profil</button></td>
-                <td><a href="#">Supprimer</a></td>
+                <td><button class="btn-success" (click)="onViewUser((i+1))">View profil</button></td>
+                <td><button  class="btn-danger" (click)="onDeleteUser(i+1)">Delete</button></td>
             </tr>
         </tbody>
     </table>

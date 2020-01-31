@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { User } from '../create-user/models/user-model';
+
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { UsersService } from './services/user.services';
+import { UsersService } from '../../services/user.services';
 import { Subscription } from 'rxjs';
+import { User } from 'src/services/user-model';
 
 @Component({
   selector: 'app-list-users',
@@ -11,7 +12,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./list-users.component.scss']
 })
 
-export class ListUsersComponent implements OnInit, OnDestroy {
+export class ListUsersComponent implements OnInit {
 
   users: User[];
   userSubscription: Subscription;
@@ -22,7 +23,7 @@ export class ListUsersComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log("entrer dans ngOnint");
-    this.httpClient.get("http://localhost:3000/user")
+    this.httpClient.get("http://localhost:3000/user/")
       .subscribe(
         (data: User[]) => {
           console.log(data);
@@ -34,14 +35,18 @@ export class ListUsersComponent implements OnInit, OnDestroy {
         (err) => {
           console.log('erreur');
         }
-      );
+      )
   }
 
    onViewUser(id: number){
      this.router.navigate(['/user', 'view', id]);
    }
-/*
-  ngOnDestroy() {
+
+   onDeleteUser(id: number){
+     this.router.navigate(['/user', 'delete', id]);
+   }
+
+  /*ngOnDestroy() {
     this.userSubscription.unsubscribe();
   }
 */

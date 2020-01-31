@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../create-user/models/user-model';
+import { User } from 'src/services/user-model';
+
 
 @Component({
   selector: 'app-single-user',
@@ -11,6 +12,7 @@ import { User } from '../create-user/models/user-model';
 export class SingleUserComponent implements OnInit {
 
    user : User[] = [];
+    userName : string;
 
   constructor(private router: Router,
               private httpClient: HttpClient,
@@ -28,7 +30,11 @@ export class SingleUserComponent implements OnInit {
       (err) =>{
         console.log("Données non récuperées!!");
       }
-    )
+    );
   }
 
+  onEditUser(id: number){
+    this.router.navigate(['user', 'edit', id]);
+  }
+  
 }

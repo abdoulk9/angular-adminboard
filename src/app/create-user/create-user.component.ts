@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from './models/user-model';
+
 import { HttpClient } from '@angular/common/http';
+import { User } from 'src/services/user-model';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CreateUserComponent implements OnInit {
   userForm : FormGroup;
-  user : User;
+  user : User[];
 
   constructor(private formBuilder: FormBuilder,
              private router: Router,
@@ -40,7 +41,7 @@ export class CreateUserComponent implements OnInit {
     .subscribe(
       ()=> {
         console.log("user créer");
-        this.router.navigate(['accueil']);
+        this.router.navigate(['users']);
       },
       (err) =>{
         console.log("Error");
