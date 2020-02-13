@@ -12,6 +12,8 @@ import { ListUsersComponent } from './list-users/list-users.component';
 import { UsersService } from '../services/user.services';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatButtonModule, MatIconModule} from '@angular/material';
 
 const appRoutes: Routes =[
    { path: 'users', component: ListUsersComponent },
@@ -38,7 +40,7 @@ const appRoutes: Routes =[
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
+    MatIconModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

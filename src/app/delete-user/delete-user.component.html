@@ -1,1 +1,11 @@
-<p>delete-user works!</p>
+<div class="container p-5 my-3 border">
+    <p>suppression de l'utilisateur:</p>
+    <ul class="">
+        <li  *ngFor="let item of userForDelete.user">
+            <p> User: {{ item.name}}</p>
+            <p> Email: {{ item.mail}}</p>
+        </li>
+    </ul>
+    <button class="btn btn-danger" (click)="onDeleteUser()">Delete</button>
+    <button class="btn btn-success" (click)="goBack()">Back to users</button>
+</div>

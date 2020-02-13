@@ -22,7 +22,7 @@ export class EditUserComponent implements OnInit {
     private httpClient: HttpClient,
     private activateRoute: ActivatedRoute,
     private formBuilder: FormBuilder) { }
-
+//Récuperation des données de l'utilisateur
   ngOnInit() {
     this.idUser = this.activateRoute.snapshot.paramMap.get('id');
     console.log(this.idUser);
@@ -57,7 +57,7 @@ export class EditUserComponent implements OnInit {
       this.httpClient.put("http://localhost:3000/user/" + this.idUser, newInfoUser)
         .subscribe(
           () => {
-              this.router.navigate(['users']);
+            this.router.navigate(['users']);
           }, (err) => {
             console.log("Update falled");
           }
@@ -68,11 +68,11 @@ export class EditUserComponent implements OnInit {
           () => {
             console.log("l'info ancienne: " + this.userInfo);
             this.router.navigate(['users']);
-          }
-        )
+          });
     }
-
   }
-
+  goBack(){
+    this.router.navigate(['users']);
+  }
 
 }

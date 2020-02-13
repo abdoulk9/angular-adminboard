@@ -9,16 +9,17 @@
                 <th>Edit</th>
             </tr>
         </thead>
-        <tbody *ngFor="let item of user.data">
+        <tbody *ngFor="let item of user.user">
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.passeword}}</td>
                 <td>{{item.mail}}</td>
-                <td><button  (click)="onEditUser(item.id)">Edit user</button></td>
+                <td><button  class="btn btn-success" (click)="onEditUser(item.id)">Edit user</button></td>
             </tr>
         </tbody>
     </table>
+    <button class="btn btn-primary" (click)="goBack()">Back to users</button>
 </div>
 
 

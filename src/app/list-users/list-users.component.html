@@ -11,14 +11,14 @@
                 <th>Destroy</th>
             </tr>
         </thead>
-        <tbody *ngFor="let user of users.data, let i = index" >
+        <tbody *ngFor="let user of users.users" >
             <tr>
                 <td>{{user.id}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.passeword}}</td>
                 <td>{{user.mail}}</td>
-                <td><button class="btn-success" (click)="onViewUser((i+1))">View profil</button></td>
-                <td><button  class="btn-danger" (click)="onDeleteUser(i+1)">Delete</button></td>
+                <td><button class="btn-success" (click)="onViewUser(user.id)"><mat-icon>visibility</mat-icon></button></td>
+                <td><button  mat-icon-button class="btn-danger"  (click)="onDeleteUser(user.id)"><mat-icon>delete_forever</mat-icon></button></td>
             </tr>
         </tbody>
     </table>

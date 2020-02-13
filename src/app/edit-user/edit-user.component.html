@@ -1,8 +1,7 @@
 <div class="container p-5 my-5">
     <div *ngFor="let item of userInfo.data">
-        <p>{{item.name}}</p>
+        <p>Modification de l'utilisateur:  {{ item.name }}</p>
     </div>
-    
     <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
         <div class="form-group">
             <input type="text" id="name" class="form-control form-control-sm" placeholder="Name" formControlName="name"
@@ -16,6 +15,7 @@
             <input type="mail" id="mail" class="form-control form-control-sm" placeholder="Email" formControlName="mail"
                 required>
         </div>
+        <button  class="btn btn-primary"(click)="goBack()">Cancel</button>
         <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Submit</button>
     </form>
 </div>

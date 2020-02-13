@@ -21,6 +21,7 @@ export class SingleUserComponent implements OnInit {
   ngOnInit() {
     
     const id = this.route.snapshot.params['id'];
+    console.log("dans single-user Oninit() l'id est: " +id);
     this.httpClient.get("http://localhost:3000/user/" + id)
     .subscribe(
       ( data: User[]) =>{
@@ -35,6 +36,9 @@ export class SingleUserComponent implements OnInit {
 
   onEditUser(id: number){
     this.router.navigate(['user', 'edit', id]);
+  }
+  goBack(){
+    this.router.navigate(['users']);
   }
   
 }

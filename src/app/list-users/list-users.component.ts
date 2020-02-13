@@ -6,6 +6,7 @@ import { UsersService } from '../../services/user.services';
 import { Subscription } from 'rxjs';
 import { User } from 'src/services/user-model';
 
+
 @Component({
   selector: 'app-list-users',
   templateUrl: './list-users.component.html',
@@ -14,7 +15,7 @@ import { User } from 'src/services/user-model';
 
 export class ListUsersComponent implements OnInit {
 
-  users: User[];
+  users: User[]=[];
   userSubscription: Subscription;
 
   constructor(private router: Router,
@@ -23,19 +24,23 @@ export class ListUsersComponent implements OnInit {
 
   ngOnInit() {
     console.log("entrer dans ngOnint");
+   // this.usersService.usersSubject.subscribe();
+    //this.userSubscription =
+//this.usersService.getUsers();
     this.httpClient.get("http://localhost:3000/user/")
       .subscribe(
         (data: User[]) => {
           console.log(data);
           this.users = (data);
-          this.usersService.emitUsers();
+         // this.usersService.emitUsersSubject();
           console.log(this.users);
           console.log("données recuperées");
         },
         (err) => {
           console.log('erreur');
         }
-      )
+      ) //this.users.emitUsersSubject();
+      
   }
 
    onViewUser(id: number){
